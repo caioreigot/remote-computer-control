@@ -3,6 +3,7 @@ import mouse
 import pyautogui
 import json
 import keyboard
+import platform
 
 
 class Control():
@@ -42,7 +43,10 @@ class Control():
 
         if oper == "scroll":
             try:
-                pyautogui.scroll(-5 if data.get("y") > 0 else 5)
+                if platform.system().upper() == "WINDOWS":
+                    pyautogui.scroll(-100 if data.get("y") > 0 else 100)
+                else:
+                    pyautogui.scroll(-5 if data.get("y") > 0 else 5)
                 return {"status": 200, "msg": "Sucesso"}
             except Exception as e:
                 return {"status": 500, "msg": "Erro"}
@@ -53,5 +57,3 @@ class Control():
                 return {"status": 200, "msg": "Sucesso"}
             except Exception as e:
                 return {"status": 500, "msg": "Erro"}
-        
-        
