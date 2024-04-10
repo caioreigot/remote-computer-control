@@ -5,6 +5,7 @@ import threading
 import base64
 import io
 import os
+from .logo import logo
 
 
 class QRCodeDisplay():
@@ -21,13 +22,13 @@ class QRCodeDisplay():
         sg.theme("DarkBlack1")
         layout = [
             [sg.Text("To access the control either enter the following URL on your browser or read the QR code.", size=(
-                40, None), justification="center", font=("Arial", 14))],
+                40, None), justification="center", font=("Arial", 14), pad=20)],
             [sg.Text(url, size=(40, None),
                         justification="center", font=("Arial", 15))],
-            [sg.Image(qr, expand_x=True, expand_y=True)],
+            [sg.Image(qr, expand_x=True, expand_y=True, pad=20)],
         ]
         window = sg.Window(
-            'Champignon', layout, icon=f"{os.getcwd()}/src/assets/logo.png", size=(600, 600), element_justification='c')
+            'Champignon', layout, icon=logo, element_justification='c')
         window.read()
 
 
