@@ -7,8 +7,10 @@ class View_List():
 
     def __init__(self) -> None:
         self.list = [
-            App,
-        ]   
+            App(),
+            Close()
+        ]
 
 
 from .app.view import App
+from .close.view import Close
