@@ -4,8 +4,6 @@ from src.views.views_list import View_List
 from src.utils.qr_code_view import QRCodeDisplay
 from src.ws_views.control.control import Control
 from flask_sock import Sock
-from dotenv import load_dotenv
-from os import getenv
 
 
 class App():
@@ -31,15 +29,9 @@ class App():
 
 
     def run_App(self)->None:
-        self.app.run(host='0.0.0.0', port=getenv("PORT"), debug=False)
+        self.app.run(host='0.0.0.0', port="5000", debug=False)
 
 
 if __name__ == "__main__":
-    load_dotenv()
     QRCodeDisplay().show()
     App()
-
-
-# import PySimpleGUI as sg
-  
-# sg.theme_previewer()

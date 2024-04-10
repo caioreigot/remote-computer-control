@@ -1,5 +1,4 @@
 from typing import Tuple, Dict
-import os
 import socket
 import base64
 from pathlib import Path
@@ -16,6 +15,6 @@ class Get():
             html = f.read()
         with open(f"{path.parent.parent.parent.parent}/assets/logo.png", "rb") as f:
             icon = f.read()
-        html = html.replace("##URL##", f"{s.getsockname()[0]}:{os.getenv('PORT')}")
+        html = html.replace("##URL##", f"{s.getsockname()[0]}:5000")
         html = html.replace("##ICON##", base64.b64encode(icon).decode())
         return html

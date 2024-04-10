@@ -34,7 +34,7 @@ class QRCodeDisplay():
     def get_url(self) -> str:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        return f"http://{s.getsockname()[0]}:{os.getenv('PORT')}/champignon"
+        return f"http://{s.getsockname()[0]}:5000/champignon"
 
 
     def get_qr(self, url: str) -> str:
